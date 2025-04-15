@@ -1,0 +1,37 @@
+mongodb:
+  storage: 
+    type: "manual"
+    pv:
+      name: mongodb-pv
+      labels:
+        app: mongodb
+      resources:
+        storage: 2Gi
+      hostPath: /mnt/mongodb
+      accessModes: ReadWriteOnce
+    pvc:
+      name: mongodb-pv-claim
+      labels:
+        app: mongodb
+      resources:
+        requests:
+          storage: 2Gi
+
+postgresdb:
+  storage:
+    type: "manual"
+    pv:
+      name: postgres-pv
+      labels:
+        app: postgresdb
+      resources:
+        storage: 2Gi
+      hostPath: /mnt/postgresdb
+    pvc:
+      name: postgres-pv-claim
+      labels:
+        app: postgresdb
+      accessModes: ReadWriteOnce
+      resources:
+        requests:
+          storage: 2Gi
